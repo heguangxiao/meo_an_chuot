@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Rats = function (name, weight, speed, life) {
+        this.nameR =  name;
+        this.weightR = weight;
+        this.speedR = speed;
+        this.lifeR = life;
+
+        this.sayR = function () {
+            alert('chit..chit...');
+        }
+    }
+
+    let chuot = new Rats('Jerry', 3, 3, true);
+
+    let Cat = function (name, weight, speed) {
+        this.nameC = name;
+        this.weightC = weight;
+        this.maxSpeed = speed;
+        this.ratC;
+
+        this.sayC = function () {
+            alert('meo meo');
+        }
+
+        this.batChuot = function (ratC) {
+            if (this.maxSpeed > ratC.speedR) {
+                this.ratC = ratC;
+                alert('bat duoc chuot '+this.ratC.nameR);
+            } else {
+                alert('chuot nhanh qua ko bat dc meo');
+            }
+        }
+
+        this.anchuot = function () {
+            if (this.ratC.lifeR) {
+                this.weightC = this.weightC + this.ratC.weightR;
+                alert('an nhieu tang can roi !! '+this.weightC+'kg');
+            } else {
+                alert('chuot chet leu leu');
+            }
+        }
+    }
+
+    let meo = new Cat('Tom', 10, 10);
+
+    chuot.sayR();
+    meo.sayC();
+    meo.batChuot(chuot);
+    chuot.sayR();
+    meo.sayC();
+    meo.anchuot();
+
+
+</script>
+</body>
+</html>
